@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adriano Miguel Tanyag – iOS Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Adriano Miguel Tanyag, iOS Developer." />
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --fg: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px clamp(12px, 4vw, 32px) 40px;
+    }
+
+    header {
+      padding: 16px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 3vw, 2rem);
+      font-weight: 600;
+    }
+
+    .role {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover {
+      border-bottom-color: var(--muted);
+    }
+
+    main { padding-top: 16px; }
+
+    section {
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      font-size: 0.92rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+    }
+
+    li { margin-bottom: 4px; }
+
+    .project-name {
+      font-weight: 500;
+    }
+
+    .project-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    .label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: clamp(10px, 4vw, 16px);
+      }
+      header {
+        padding-bottom: 18px;
+      }
+      nav {
+        gap: 10px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="top-row">
+        <div>
+          <h1>Adriano Miguel Tanyag</h1>
+          <div class="role">iOS Developer · Software Engineer</div>
+        </div>
+        <div style="font-size:0.85rem; color:var(--muted);">
+          Pasig, Philippines · Open to remote
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>About</h2>
+        <div class="card">
+          <p>
+            I’m an iOS developer with 7+ years of experience specializing in native Swift applications.
+            I’ve worked on enterprise-grade apps like the Vitality health ecosystem, handling the full
+            development lifecycle—from writing clean, maintainable code to managing App Store releases
+            and CI/CD pipelines. I focus on stability, performance, and delivering reliable mobile
+            experiences for real users.
+          </p>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <p class="section-sub">Core technologies and tools I use regularly.</p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label">iOS & Mobile Development</div>
+            <div class="tag-list">
+              <span class="tag">Swift</span>
+              <span class="tag">Objective-C</span>
+              <span class="tag">UIKit</span>
+              <span class="tag">Cocoa Touch</span>
+              <span class="tag">Flutter (basic)</span>
+              <span class="tag">Native iOS</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="label">Tools, DevOps & Workflow</div>
+            <div class="tag-list">
+              <span class="tag">Git · GitHub</span>
+              <span class="tag">Bitrise (CI/CD)</span>
+              <span class="tag">Xcode</span>
+              <span class="tag">App Store Connect</span>
+              <span class="tag">TestFlight</span>
+              <span class="tag">Jira</span>
+              <span class="tag">ServiceNow</span>
+              <span class="tag">Agile</span>
+              <span class="tag">Technical Documentation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="card" style="margin-bottom:12px;">
+          <div class="line">
+            <strong>iOS Mobile Developer</strong>
+            <span>·</span>
+            <span style="color:var(--muted);">Accenture Philippines</span>
+            <span>·</span>
+            <span style="color:var(--muted);">Mar 2019 – Present</span>
+          </div>
+          <div class="label" style="margin-top:2px;">Taguig, NCR</div>
+          <ul>
+            <li>Developed and deployed complex new features for the Vitality health ecosystem used by a large global user base.</li>
+            <li>Refactored and migrated legacy codebases to modern Swift standards to improve stability and maintainability.</li>
+            <li>Managed the release pipeline via App Store Connect and TestFlight, including certificates and production submissions.</li>
+            <li>Implemented CI/CD workflows using Bitrise to automate builds and streamline deployment.</li>
+            <li>Worked closely with QA and product teams to diagnose and resolve critical production issues using Jira and ServiceNow.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="line">
+            <strong>Software Developer</strong>
+            <span>·</span>
+            <span style="color:var(--muted);">Network Economic Service Ventures (NESV)</span>
+            <span>·</span>
+            <span style="color:var(--muted);">Sep 2016 – Feb 2019</span>
+          </div>
+          <div class="label" style="margin-top:2px;">Pasig, NCR</div>
+          <ul>
+            <li>Debugged and enhanced existing iOS applications using Swift and Objective-C.</li>
+            <li>Maintained and updated company web platforms via CMS to fix layout issues and improve performance.</li>
+            <li>Designed HTML-based email newsletters and managed digital assets for marketing campaigns.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+        <section id="projects">
+        <h2>Projects & Published Apps</h2>
+        <p class="section-sub">Key apps I’ve contributed to, with live store links where available.</p>
+        <div class="grid-2">
+
+            <!-- VITALITY -->
+            <div class="card">
+            <div class="project-name">Vitality App Ecosystem</div>
+            <div class="project-meta">Enterprise Health & Rewards Platform · Production</div>
+            <p>
+                A comprehensive health application ecosystem that tracks health, workouts, and lifestyle
+                to provide rewards and incentives. Worked as an iOS developer on multiple white-label
+                variants for different regions.
+            </p>
+            <ul>
+                <li>Implemented and maintained features across France, Germany, Austria, Africa, and Japan.</li>
+                <li>Refactored legacy Objective-C into modern Swift components.</li>
+                <li>Handled App Store and TestFlight releases for multi-region rollouts.</li>
+            </ul>
+
+            <div class="project-link">
+                <strong>iOS App Store links:</strong><br />
+                <a href="https://apps.apple.com/fr/app/generali-vitality/id1132450045" target="_blank" rel="noopener">
+                Generali Vitality – France
+                </a><br />
+                <a href="https://apps.apple.com/de/app/generali-vitality/id1089388341" target="_blank" rel="noopener">
+                Generali Vitality – Germany
+                </a><br />
+                <a href="https://apps.apple.com/pl/app/generali-vitality/id1592042380" target="_blank" rel="noopener">
+                Generali Vitality – Poland
+                </a><br />
+                <a href="https://apps.apple.com/za/app/vitality-africa/id1605112271" target="_blank" rel="noopener">
+                Vitality Africa
+                </a><br />
+                <!-- Japan -->
+                <a href="https://apps.apple.com/jp/app/generali-vitality/id1592042380" target="_blank" rel="noopener">
+                Vitality Japan
+                </a>
+            </div>
+            </div>
+
+            <!-- BUBU BUDGET BUDDY -->
+            <div class="card">
+            <div class="project-name">BUBU Budget Buddy</div>
+            <div class="project-meta">Personal Finance App · Previously on App Store</div>
+            <p>
+                A personal finance application designed to help users manage their budgeting,
+                savings, and daily expenses. App was live previously, now archived.
+            </p>
+            <ul>
+                <li>Designed UI flows for adding and reviewing budget categories.</li>
+                <li>Implemented core budgeting and expense-tracking features.</li>
+                <li>Handled UI and basic storage logic in iOS.</li>
+            </ul>
+            <div class="project-link">
+                <a href="https://www.facebook.com/bububudgetbuddy/" target="_blank" rel="noopener">
+                BuBu Budget Buddy – Facebook page
+                </a>
+            </div>
+            </div>
+
+        </div>
+        </section>
+
+
+      <!-- EDUCATION + CONTACT -->
+      <section id="contact">
+        <h2>Education & Contact</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="label">Education</div>
+            <p><strong>Bachelor of Science in Information Technology</strong><br />
+            Polytechnic University of the Philippines (PUP)<br />
+            June 2012 – May 2016</p>
+          </div>
+          <div class="card">
+            <div class="label">Contact</div>
+            <p class="line">
+              <span class="label">Email</span>
+              <a href="mailto:mackyfamous@gmail.com">mackyfamous@gmail.com</a>
+            </p>
+            <p class="line">
+              <span class="label">LinkedIn</span>
+              <a href="https://linkedin.com/in/adrianomigueltanyag" target="_blank">
+                linkedin.com/in/adrianomigueltanyag
+              </a>
+            </p>
+            <!-- <p class="line">
+              <span class="label">GitHub</span>
+              <a href="https://github.com/your-username" target="_blank">
+                github.com/your-username
+              </a>
+            </p> -->
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>© <span id="year"></span> Adriano Miguel Tanyag · iOS Developer</span>
+        <span>Built with HTML &amp; CSS</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
