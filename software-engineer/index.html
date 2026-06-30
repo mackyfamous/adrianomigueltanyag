@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Adriano Miguel Tanyag - Senior Software Engineer portfolio focused on iOS, enterprise software delivery, automation, and relocation opportunities." />
+  <title>Adriano Miguel Tanyag | Senior Software Engineer</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111c33;
+      --panel-soft: #17233d;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.2);
+      --accent: #38bdf8;
+      --accent-2: #a7f3d0;
+      --white: #ffffff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(167, 243, 208, 0.12), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .brand span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 92px 0 68px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .profile-card,
+    .section-card,
+    .project-card,
+    .experience-card {
+      background: linear-gradient(180deg, rgba(23, 35, 61, 0.94), rgba(17, 28, 51, 0.94));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      box-shadow: 0 0 24px var(--accent-2);
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 7vw, 5.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin-bottom: 22px;
+    }
+
+    .lead {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      color: #cbd5e1;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #082f49;
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(255, 255, 255, 0.045);
+      color: #dbeafe;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .profile-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .profile-top {
+      display: grid;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #0f172a;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .profile-card h2 {
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .profile-card p,
+    .small {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 26px 0;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+      color: var(--white);
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      font-size: 0.94rem;
+      color: #cbd5e1;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+      word-break: break-word;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 24px;
+    }
+
+    .section-card h3,
+    .project-card h3,
+    .experience-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+    }
+
+    .section-card ul,
+    .project-card ul,
+    .experience-card ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .section-card li,
+    .project-card li,
+    .experience-card li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .section-card li::before,
+    .project-card li::before,
+    .experience-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .experience-card {
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 0.32fr 1fr;
+      gap: 24px;
+    }
+
+    .period {
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 14px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 26px;
+      min-height: 100%;
+    }
+
+    .project-type {
+      display: inline-flex;
+      margin-bottom: 14px;
+      color: var(--accent-2);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .mini-link {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .callout {
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(167, 243, 208, 0.08));
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .callout h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .callout p {
+      color: #cbd5e1;
+      max-width: 760px;
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .experience-card,
+      .callout {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        padding: 18px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero-card {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <strong>Adriano Miguel Tanyag</strong>
+        <span>Senior Software Engineer · iOS · Automation</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Open to relocation · Christchurch, New Zealand</div>
+          <h1>Senior Software Engineer focused on reliable products, mobile platforms, and workflow automation.</h1>
+          <p class="lead">
+            I build and maintain production software used by real users—from enterprise iOS applications and App Store
+            release pipelines to internal automation tools that improve department workflows and operational visibility.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:mackyfamous@gmail.com">Contact Me</a>
+            <a class="button secondary" href="#projects">View Projects</a>
+          </div>
+
+          <div class="quick-tags" aria-label="Core strengths">
+            <span class="tag">Swift</span>
+            <span class="tag">Objective-C</span>
+            <span class="tag">UIKit</span>
+            <span class="tag">SwiftUI</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">TestFlight</span>
+            <span class="tag">App Store Connect</span>
+            <span class="tag">Google Apps Script</span>
+            <span class="tag">Workflow Automation</span>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile summary">
+          <div class="profile-top">
+            <div class="avatar" aria-hidden="true">AT</div>
+            <div>
+              <h2>iOS engineer expanding into broader product and systems engineering.</h2>
+              <p>
+                Based in Pasig, Philippines. Interested in roles where engineering quality, problem solving,
+                collaboration, and product impact matter.
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>7+</strong>
+              <span>years in software engineering</span>
+            </div>
+            <div class="stat">
+              <strong>5+</strong>
+              <span>global app markets supported</span>
+            </div>
+            <div class="stat">
+              <strong>CI/CD</strong>
+              <span>build and release workflow</span>
+            </div>
+            <div class="stat">
+              <strong>GovTech</strong>
+              <span>internal workflow automation</span>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <span>Email: <a href="mailto:mackyfamous@gmail.com">mackyfamous@gmail.com</a></span>
+            <span>LinkedIn: <a href="https://www.linkedin.com/in/adrianomigueltanyag" target="_blank" rel="noreferrer">linkedin.com/in/adrianomigueltanyag</a></span>
+            <span>GitHub: <a href="https://github.com/mackyfamous" target="_blank" rel="noreferrer">github.com/mackyfamous</a></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>
+            A software engineer with a mobile-first foundation and practical experience solving operational problems
+            through automation, documentation, and reliable release processes.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <p>
+            I am a Software Engineer with over seven years of experience building, maintaining, and releasing native iOS
+            applications in enterprise environments. My background includes Swift, Objective-C, UIKit, SwiftUI,
+            production issue resolution, App Store releases, TestFlight distribution, CI/CD support, stakeholder
+            collaboration, and technical documentation.
+          </p>
+          <br />
+          <p>
+            Beyond mobile development, I have also built internal workflow automation for government department
+            operations, including delivery scheduling and requisition-style tracking. This work strengthened my ability
+            to understand manual processes, translate them into structured systems, and create tools that improve
+            visibility, reduce repetitive work, and support better coordination.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Technical strengths</h2>
+          <p>
+            Current strengths are deepest in iOS and enterprise delivery, with growing interest in cloud, product
+            engineering, automation, and scalable systems.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="section-card">
+            <h3>Mobile & Product Engineering</h3>
+            <ul>
+              <li>Swift, Objective-C, UIKit, SwiftUI</li>
+              <li>MVVM, MVC, reusable components</li>
+              <li>Debugging, refactoring, performance fixes</li>
+              <li>App Store, TestFlight, production releases</li>
+              <li>Feature development and long-term maintenance</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h3>Engineering Workflow</h3>
+            <ul>
+              <li>Git, GitHub, Gerrit, pull requests</li>
+              <li>Bitrise, Jenkins, CI/CD support</li>
+              <li>Jira, ServiceNow, Agile collaboration</li>
+              <li>QA coordination and release validation</li>
+              <li>Technical documentation and handoff notes</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h3>Automation & Web Foundations</h3>
+            <ul>
+              <li>Google Apps Script automation</li>
+              <li>Google Forms and Google Sheets workflows</li>
+              <li>HTML, CSS, JavaScript, CMS maintenance</li>
+              <li>Internal tools and operational dashboards</li>
+              <li>Process mapping and workflow improvement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Experience</h2>
+          <p>
+            Enterprise mobile engineering, cross-functional collaboration, and practical software delivery across
+            production environments.
+          </p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-card">
+            <div>
+              <div class="period">Mar 2019 – Dec 2025</div>
+              <p class="small">Taguig, NCR</p>
+            </div>
+            <div>
+              <h3>iOS Mobile Developer · Accenture Philippines</h3>
+              <p class="meta">Enterprise health and rewards applications · Global product ecosystem</p>
+              <ul>
+                <li>Developed, enhanced, and maintained native iOS features for a global health and wellness app ecosystem.</li>
+                <li>Supported multi-region app releases through TestFlight, App Store Connect, certificates, provisioning profiles, and release coordination.</li>
+                <li>Refactored legacy Swift and Objective-C code to improve stability, maintainability, and developer workflow.</li>
+                <li>Worked with QA, product, and client teams to investigate bugs, validate fixes, and support production releases.</li>
+                <li>Used Git-based collaboration, Jira, ServiceNow, Bitrise, Jenkins, and Agile delivery practices.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <div>
+              <div class="period">Sep 2016 – Feb 2019</div>
+              <p class="small">Pasig, NCR</p>
+            </div>
+            <div>
+              <h3>Software Developer · Network Economic Service Ventures</h3>
+              <p class="meta">iOS support · CMS maintenance · HTML email development</p>
+              <ul>
+                <li>Debugged and enhanced iOS applications using Swift and Objective-C.</li>
+                <li>Maintained CMS-based websites and improved layout, content, and front-end issues.</li>
+                <li>Created and edited HTML email newsletters and supported digital campaign assets.</li>
+                <li>Collaborated with internal teams to deliver technical updates, fixes, and content changes.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Selected projects</h2>
+          <p>
+            A mix of enterprise product work, mobile development, and internal workflow automation.
+          </p>
+        </div>
+
+        <div class="projects">
+          <article class="project-card">
+            <span class="project-type">Enterprise iOS · Production</span>
+            <h3>Vitality App Ecosystem</h3>
+            <p>
+              Contributed to a multi-region health and rewards application ecosystem, supporting feature delivery,
+              release preparation, technical fixes, and long-term app maintenance.
+            </p>
+            <ul>
+              <li>Supported regional variants across Europe, Africa, and Asia.</li>
+              <li>Worked on Swift/Objective-C codebases with production release expectations.</li>
+              <li>Handled TestFlight, App Store, certificates, and release coordination tasks.</li>
+            </ul>
+            <div class="project-links">
+              <a class="mini-link" href="https://apps.apple.com/" target="_blank" rel="noreferrer">App Store references available</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">GovTech · Internal Automation</span>
+            <h3>Department Delivery Schedule / RSD Automation</h3>
+            <p>
+              Built an internal workflow automation system to help a government department organize delivery schedules,
+              track requests, and reduce manual coordination work.
+            </p>
+            <ul>
+              <li>Created structured form-based data capture for department requests and delivery details.</li>
+              <li>Used Google Apps Script, Google Forms, Google Sheets, and email-style notifications to support workflow visibility.</li>
+              <li>Designed reference ID tracking and update flows to make records easier to locate and manage.</li>
+              <li>Improved repetitive administrative processes while keeping sensitive department data internal.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">Personal iOS · Product Build</span>
+            <h3>BuBu Budget Buddy</h3>
+            <p>
+              Personal finance app previously published on the App Store, designed to help users manage budget
+              categories, savings, and daily expenses.
+            </p>
+            <ul>
+              <li>Designed and implemented core budgeting and expense-tracking flows.</li>
+              <li>Handled UI implementation and local storage logic.</li>
+              <li>Managed app updates and product presentation materials.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">Web & Content Systems</span>
+            <h3>CMS, HTML Email, and Website Maintenance</h3>
+            <p>
+              Supported business websites, HTML email newsletters, and front-end content updates before specializing
+              deeper in native mobile development.
+            </p>
+            <ul>
+              <li>Maintained WordPress/CMS pages and fixed front-end layout issues.</li>
+              <li>Created HTML email newsletters and edited marketing assets.</li>
+              <li>Built a foundation in HTML, CSS, JavaScript, content systems, and stakeholder support.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Education</h2>
+          <p>Formal IT background with continued practical learning through production software work.</p>
+        </div>
+
+        <div class="section-card">
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p class="meta">Polytechnic University of the Philippines · 2012 – 2016</p>
+          <p>
+            Focused on software development, systems analysis, programming foundations, and applied information
+            technology.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h2>Open to senior software engineering opportunities with relocation support.</h2>
+            <p>
+              I am interested in roles where I can contribute my mobile engineering background, production delivery
+              discipline, automation experience, and willingness to grow into broader cloud and product engineering work.
+            </p>
+          </div>
+          <a class="button primary" href="mailto:mackyfamous@gmail.com">Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Adriano Miguel Tanyag · Senior Software Engineer Portfolio
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

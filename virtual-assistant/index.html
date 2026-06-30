@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Virtual Assistant portfolio of Adriano Miguel P. Tanyag — administrative support, project coordination, documentation, workflow support, web support, and technical assistance." />
+  <title>Adriano Miguel P. Tanyag | Tech-Savvy Virtual Assistant</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111c33;
+      --panel-soft: #17233d;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.2);
+      --accent: #38bdf8;
+      --accent-2: #a7f3d0;
+      --white: #ffffff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(167, 243, 208, 0.12), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(100% - 40px, var(--max)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand { display: flex; flex-direction: column; gap: 2px; }
+    .brand strong { font-size: 1rem; letter-spacing: 0.01em; }
+    .brand span { font-size: 0.82rem; color: var(--muted); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .nav-links a { transition: color 160ms ease; }
+    .nav-links a:hover { color: var(--white); }
+
+    .hero { padding: 92px 0 68px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .profile-card,
+    .section-card,
+    .service-card,
+    .experience-card,
+    .tool-card {
+      background: linear-gradient(180deg, rgba(23, 35, 61, 0.94), rgba(17, 28, 51, 0.94));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card { padding: 42px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      box-shadow: 0 0 24px var(--accent-2);
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 7vw, 5.05rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin-bottom: 22px;
+    }
+
+    .lead {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      color: #cbd5e1;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 30px 0; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--accent); color: #082f49; }
+    .button.secondary { border-color: var(--line); color: var(--white); background: rgba(255,255,255,0.04); }
+
+    .quick-tags,
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .quick-tags { margin-top: 28px; }
+    .tag {
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(255,255,255,0.045);
+      color: #dbeafe;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .profile-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+    .profile-top { display: grid; gap: 18px; }
+    .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #0f172a;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+    .profile-card h2 { font-size: 1.45rem; letter-spacing: -0.03em; line-height: 1.15; }
+    .profile-card p, .small { color: var(--muted); font-size: 0.95rem; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 26px 0; }
+    .stat { border: 1px solid var(--line); border-radius: 18px; padding: 16px; background: rgba(255,255,255,0.035); }
+    .stat strong { display: block; font-size: 1.45rem; color: var(--white); letter-spacing: -0.04em; }
+    .stat span { color: var(--muted); font-size: 0.82rem; }
+
+    .contact-list { display: grid; gap: 10px; font-size: 0.94rem; color: #cbd5e1; }
+    .contact-list a { color: var(--accent); word-break: break-word; }
+
+    section { padding: 36px 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 20px; }
+    .section-heading h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -0.05em; line-height: 1.05; }
+    .section-heading p { color: var(--muted); max-width: 540px; }
+    .section-card { padding: 26px; }
+    .section-card p { color: #cbd5e1; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service-card, .tool-card { padding: 24px; min-height: 100%; }
+
+    .label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      color: var(--accent-2);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .service-card h3,
+    .tool-card h3,
+    .experience-card h3,
+    .section-card h3 { font-size: 1.12rem; margin-bottom: 12px; letter-spacing: -0.025em; }
+
+    .service-card ul,
+    .experience-card ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    .service-card li,
+    .experience-card li { position: relative; padding-left: 18px; }
+    .service-card li::before,
+    .experience-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .experience-list { display: grid; gap: 18px; }
+    .experience-card { padding: 26px; display: grid; grid-template-columns: 0.32fr 1fr; gap: 24px; }
+    .period { color: var(--accent-2); font-weight: 800; font-size: 0.92rem; }
+    .meta { color: var(--muted); font-size: 0.93rem; margin-bottom: 14px; }
+
+    .callout {
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(167, 243, 208, 0.08));
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin-top: 18px;
+    }
+    .callout h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -0.05em; line-height: 1.05; margin-bottom: 10px; }
+    .callout p { color: #cbd5e1; max-width: 760px; }
+
+    footer { padding: 34px 0 46px; color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .experience-card,
+      .callout { grid-template-columns: 1fr; }
+      .grid-2,
+      .grid-3 { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; padding: 18px 0; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; }
+      .hero { padding-top: 54px; }
+      .hero-card { padding: 30px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .stat-grid { grid-template-columns: 1fr; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .hero-actions .button { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <strong>Adriano Miguel P. Tanyag</strong>
+        <span>Tech-Savvy Virtual Assistant · Remote Support</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#tools">Tools</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Remote-ready · Pasig, Philippines</div>
+          <h1>Tech-savvy Virtual Assistant for organized teams and digital operations.</h1>
+          <p class="lead">
+            I help businesses stay organized through inbox and calendar support, task tracking,
+            documentation, web content updates, basic technical support, workflow coordination, and project specialist support.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:mackyfamous@gmail.com">Contact Me</a>
+            <a class="button secondary" href="#services">View Services</a>
+          </div>
+
+          <div class="quick-tags" aria-label="Core strengths">
+            <span class="tag">Administrative Support</span>
+            <span class="tag">Project Tracking</span>
+            <span class="tag">Jira</span>
+            <span class="tag">ServiceNow</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">Canva</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">CMS Updates</span>
+            <span class="tag">Documentation</span>
+            <span class="tag">Project Specialist Support</span>
+            <span class="tag">Asana Workflow Support</span>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile summary">
+          <div class="profile-top">
+            <div class="avatar" aria-hidden="true">AT</div>
+            <div>
+              <h2>Corporate-trained support with a strong technical background.</h2>
+              <p>
+                I combine administrative reliability with software, web, documentation, and project coordination experience—useful for teams
+                that need support beyond basic VA tasks.
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat"><strong>9+</strong><span>years corporate experience</span></div>
+            <div class="stat"><strong>Remote</strong><span>available for online work</span></div>
+            <div class="stat"><strong>Tech</strong><span>web, docs, and tools</span></div>
+            <div class="stat"><strong>Ops</strong><span>tasks, reports, and follow-ups</span></div>
+          </div>
+
+          <div class="contact-list">
+            <span>Location: Pasig, NCR, Philippines</span>
+            <span>Email: <a href="mailto:mackyfamous@gmail.com">mackyfamous@gmail.com</a></span>
+            <span>Mobile: <a href="tel:+639954772115">+63 995 477 2115</a></span>
+            <span>LinkedIn: <a href="https://www.linkedin.com/in/adrianomigueltanyag" target="_blank" rel="noreferrer">linkedin.com/in/adrianomigueltanyag</a></span>
+            <span>GitHub: <a href="https://github.com/mackyfamous" target="_blank" rel="noreferrer">github.com/mackyfamous</a></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>A Virtual Assistant profile designed for clients who need reliable admin support plus technical confidence.</p>
+        </div>
+
+        <div class="section-card">
+          <p>
+            I am a tech-savvy Virtual Assistant with over 9 years of experience supporting teams in fast-paced corporate
+            and technical environments. My background combines administrative support, project tracking, and technical
+            documentation with hands-on experience in Jira, ServiceNow, CMS platforms, Canva, Microsoft Office, and
+            Google Workspace.
+          </p>
+          <br />
+          <p>
+            I help businesses stay organized by managing emails, calendars, tasks, documents, and digital assets—while
+            also handling basic web, design, project coordination, documentation, and technical support when needed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Services</h2>
+          <p>Practical support for day-to-day operations, project coordination, documentation, and digital content.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="service-card">
+            <span class="label">Administrative & Executive Support</span>
+            <h3>Inbox, calendar, files, and reports</h3>
+            <ul>
+              <li>Inbox and email management</li>
+              <li>Calendar organization and scheduling</li>
+              <li>Data entry, document formatting, and filing</li>
+              <li>Internet research and information gathering</li>
+              <li>Preparing simple reports and summaries</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="label">Project & Task Coordination</span>
+            <h3>Keep tasks visible and moving</h3>
+            <ul>
+              <li>Tracking tasks and tickets using Jira and ServiceNow</li>
+              <li>Updating project boards and status reports</li>
+              <li>Following up on pending items and deadlines</li>
+              <li>Assisting with basic quality checks and bug tracking</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="label">Technical & Web Support</span>
+            <h3>Basic web, CMS, and troubleshooting help</h3>
+            <ul>
+              <li>Basic website and content updates using CMS platforms</li>
+              <li>Simple HTML/CSS edits for layouts and content</li>
+              <li>Basic troubleshooting for hardware and software issues</li>
+              <li>Creating and maintaining technical documentation and guides</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="label">Creative & Marketing Support</span>
+            <h3>Clean visuals and digital content assistance</h3>
+            <ul>
+              <li>Simple graphics and social posts using Canva</li>
+              <li>Assisting with email newsletter creation</li>
+              <li>Formatting slide decks and documents</li>
+              <li>Updating web content for campaigns and promotions</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Tools & platforms</h2>
+          <p>Software and platforms I can use comfortably for admin, project, content, and support work.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="tool-card">
+            <span class="label">Project & Workflow</span>
+            <div class="tag-list">
+              <span class="tag">Jira</span><span class="tag">ServiceNow</span><span class="tag">Trello</span>
+              <span class="tag">Project Boards</span><span class="tag">Status Reports</span><span class="tag">Task Tracking</span>
+            </div>
+          </div>
+          <div class="tool-card">
+            <span class="label">Admin & Productivity</span>
+            <div class="tag-list">
+              <span class="tag">Google Workspace</span><span class="tag">Microsoft Office</span><span class="tag">Email</span>
+              <span class="tag">Calendar</span><span class="tag">Spreadsheets</span><span class="tag">Documentation</span>
+            </div>
+          </div>
+          <div class="tool-card">
+            <span class="label">Content, Web & Design</span>
+            <div class="tag-list">
+              <span class="tag">Canva</span><span class="tag">Adobe Photoshop</span><span class="tag">WordPress</span>
+              <span class="tag">Joomla</span><span class="tag">HTML/CSS</span><span class="tag">Email Newsletters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Experience</h2>
+          <p>Corporate, technical, web, and administrative experience that supports a stronger VA profile.</p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-card">
+            <div>
+              <div class="period">May 2026 – Present</div>
+              <p class="small">Remote · United States-based practice</p>
+            </div>
+            <div>
+              <h3>Project Specialist · Morning View Family Therapy (MVFT)</h3>
+              <p class="meta">Operations documentation · workflow coordination · Asana support · clinical admin projects</p>
+              <ul>
+                <li>Support practice operations by organizing tasks, clarifying requirements, preparing documentation, and tracking project updates for leadership review.</li>
+                <li>Create, clean, and update operations manuals, SOPs, consent forms, financial agreements, clinical supervision materials, credentialing guides, and billing documentation.</li>
+                <li>Assist with Asana and Google Sheets workflow planning, including task imports, project structure recommendations, onboarding checklists, and operational task cleanup.</li>
+                <li>Prepare summaries, reply drafts, meeting reviews, clarification lists, and polished documents based on leadership feedback and recorded discussions.</li>
+                <li>Support nonprofit and behavioral health program development materials, including Community Minds documents, IOP/PHP planning resources, and presentation/flyer content.</li>
+              </ul>
+            </div>
+          </article>
+
+
+          <article class="experience-card">
+            <div><div class="period">Mar 2019 – Dec 2025</div><p class="small">Taguig, NCR</p></div>
+            <div>
+              <h3>Technical Support Specialist / Developer · Accenture Philippines</h3>
+              <p class="meta">Project tracking · technical documentation · support coordination</p>
+              <ul>
+                <li>Managed and tracked development tasks and support tickets using Jira and ServiceNow.</li>
+                <li>Organized and monitored project-related communication to keep teams aligned.</li>
+                <li>Created and maintained technical documentation, process notes, and user guides.</li>
+                <li>Assisted with quality checks, issue tracking, and coordination between teams.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <div><div class="period">Sep 2016 – Feb 2019</div><p class="small">Pasig, NCR</p></div>
+            <div>
+              <h3>Web Content & Marketing Support · Network Economic Service Ventures</h3>
+              <p class="meta">CMS updates · HTML email · digital content support</p>
+              <ul>
+                <li>Updated website content and layouts using CMS platforms.</li>
+                <li>Created HTML email newsletters and supported digital marketing campaigns.</li>
+                <li>Edited graphics and images for use on web and social channels.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <div><div class="period">Jan 2016 – Apr 2016</div><p class="small">Makati, NCR</p></div>
+            <div>
+              <h3>IT Support Intern · Inventive Media – Computer IT Training</h3>
+              <p class="meta">Office support · web updates · asset preparation</p>
+              <ul>
+                <li>Assisted with day-to-day office and administrative tasks.</li>
+                <li>Supported web updates using WordPress and Joomla.</li>
+                <li>Helped the design team with image editing and asset preparation.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <div><div class="period">May 2013</div><p class="small">Pasig, NCR</p></div>
+            <div>
+              <h3>Administrative Assistant · Municipality of Pasig</h3>
+              <p class="meta">Records organization · data encoding · public-facing support</p>
+              <ul>
+                <li>Handled document filing, data encoding, and records organization.</li>
+                <li>Assisted with public-facing requests and basic office logistics.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Education & contact</h2>
+          <p>Available for remote administrative, technical, project coordination, and digital support work.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="section-card">
+            <span class="label">Education</span>
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p class="meta">Polytechnic University of the Philippines · June 2012 – May 2016</p>
+            <p>Background in software development, systems analysis, programming foundations, web technologies, and applied information technology.</p>
+          </div>
+
+          <div class="section-card">
+            <span class="label">Contact</span>
+            <div class="contact-list">
+              <span>Email: <a href="mailto:mackyfamous@gmail.com">mackyfamous@gmail.com</a></span>
+              <span>Mobile: <a href="tel:+639954772115">+63 995 477 2115</a></span>
+              <span>LinkedIn: <a href="https://www.linkedin.com/in/adrianomigueltanyag" target="_blank" rel="noreferrer">linkedin.com/in/adrianomigueltanyag</a></span>
+              <span>GitHub: <a href="https://github.com/mackyfamous" target="_blank" rel="noreferrer">github.com/mackyfamous</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div>
+            <h2>Need a VA who can handle both admin work and technical support?</h2>
+            <p>I can help with email, calendars, task tracking, documentation, web updates, Canva assets, simple reports, and follow-ups—especially for teams that use digital tools every day.</p>
+          </div>
+          <a class="button primary" href="mailto:mackyfamous@gmail.com">Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Adriano Miguel P. Tanyag · Tech-Savvy Virtual Assistant Portfolio</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
